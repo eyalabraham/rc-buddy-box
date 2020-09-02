@@ -120,10 +120,10 @@ volatile uint16_t channel_duration[PPM_INTERVALS] =
         MIN_CHAN,   // Throttle
         MID_CHAN,   // Rudder
         MID_CHAN,   // Flaps
-        60,         // (dummy)
-        60,         // (dummy)
-        60,         // (dummy)
-        1180        // (filler for 20mSec)
+        MID_CHAN,   // (dummy)
+        MID_CHAN,   // (dummy)
+        MID_CHAN,   // (dummy)
+        (FRAME_20MSEC - (8 * MID_CHAN) - (9 * SHORT_PULSE)) // (filler for 20mSec)
     };
 
 /* '0' indicate normal channel movement, and

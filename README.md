@@ -1,23 +1,23 @@
 # RC buddy-box
 
-AVR code for ATtiny84 PPM generator. The device replaces a salvaged transmitter-electronics to generate a PPM signal as a buddy-box controller. The AVR accepts five potentiometers from: four controller 'sticks' plus one 'flap' position. The AVR generates an 8-channel PPM signal from the fine control inputs as: five active and three dummy. The code makes use of Timer0 to time the short pulse and Timer1 to time the variable channel pulse duration. Two interrupt routines toggle the output line to composed a signal that is compatible with FlySky FS-i6X RC controller. Other controllers may be tested and listed here and on the [project page](https://sites.google.com/site/eyalabraham/rc-buddy-box) in the future.
+AVR code for ATtiny84 PPM generator. The device replaces a salvaged transmitter-electronics to generate a PPM signal as a buddy-box controller. The AVR accepts five potentiometers from: four controller 'sticks' plus one 'flap' position. The AVR generates an 8-channel PPM signal from the five control inputs as: five active and three dummy. The code makes use of Timer0 to time the short pulse and Timer1 to time the variable channel pulse duration. Two interrupt routines toggle the output line to compose a signal that is compatible with the FlySky FS-i6X RC controller. Other controllers may be tested and listed here and on the [project page](https://sites.google.com/site/eyalabraham/rc-buddy-box) in the future.
 
 ## Features
 
 - Channel reversal DIP switches for Ch.1 Rudder/Ailerons, Ch.2 Elevator, and Ch.4 Ailerons
 - Stick range calibration mode
-- Preserve stick calibration through power cycle
+- Preserve stick calibration in EEPROM through power cycle
 
 ## Stick range calibration
 
 1. Turn system OFF
 2. Center all trims and sticks
 3. Set calibration DIP switch to 'ON'
-4. Turn ON the system
+4. Turn on the system
 5. Move **all** sticks from minimum to maximum through full motion range (up/down or left/right)
 6. When done, move calibration DIP switch to 'OFF'
 
-> NOTE: All stick must be re-calibrated when calibration mode is entered!
+> NOTE: All sticks must be re-calibrated when calibration mode is entered!
 
 To read EEPROM calibration data for verification use ```avrdude``` command line:
 
